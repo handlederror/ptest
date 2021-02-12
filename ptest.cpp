@@ -1,24 +1,17 @@
 #include "ptest.hpp"
 
-#include <color>
-#include <vector>
-#include <string>
+#include <sys>
+
+TEST("BuildTest", "BuildCXX") {
+    #include <iostream>
+
+    std::cout << sys::exec("g++ ./main.cpp && ./a.out && rm ./a.out") << std::endl;
+
+    return 0;
+} END_TEST;
 
 int main(int argc, char* argv[]) {
-    const char* args[] = {""};
-    testing::PTest::Tester tester = testing::PTest::Tester("tester", (char**)args, "cxx");
+    char* args[1] = {argv[1]};
 
-    std::vector<std::string> includes = {
-        "sys",
-        "iostream"
-    };
-
-    std::vector<std::string> test = {
-        "std::cout << sys::exec(\"g++ main.cpp && ./a.out && rm ./a.out\") << std::endl;"
-    };
-
-    colors::ColorPallet colorPallet;
-
-    tester.testJob(includes, test);
-    tester.runTestJob(colorPallet);
+    return testing::PseudoTest.runTests(args);
 }
