@@ -9,13 +9,12 @@ int main(int argc, char* argv[]) {
     testing::PTest::Tester tester = testing::PTest::Tester("tester", (char**)args, "cxx");
 
     std::vector<std::string> includes = {
-        "string",
+        "sys",
         "iostream"
     };
 
     std::vector<std::string> test = {
-        "std::string hello = \"Hello, world!\";",
-        "std::cout << hello << std::endl;"
+        "std::cout << sys::exec(\"g++ main.cpp && ./a.out && rm ./a.out\") << std::endl;"
     };
 
     colors::ColorPallet colorPallet;
