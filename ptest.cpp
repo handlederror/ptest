@@ -10,8 +10,6 @@ TEST("BuildTest", "BuildCXX") {
     return 0;
 } END_TEST;
 
-int main(int argc, char* argv[]) {
-    char* args[1] = {argv[1]};
-
-    return testing::PseudoTest.runTests(args);
+int main() {
+    return RUN_ALL_TESTS;
 }
