@@ -1,6 +1,6 @@
 #include "ptest.hpp"
 
-#include <sys>
+#include <system>
 
 TEST("BuildTest", "BuildCXX") {
     #include <iostream>
