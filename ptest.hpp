@@ -2,17 +2,14 @@
 
 #include <string>
 #include <iostream>
-
-#include <stdio.h>
+#include <stdlib.h>
 
 #define END_TEST };} namespace testing { testing::Test PseudoTest; }
 #define TEST(test_case_name, test_name) namespace testing { class Test : public testing::PTest { public: int testJob()
-#define RUN_ALL_TESTS testing::PseudoTest.runTests()
+#define RUN_ALL_TESTS testing::PseudoTest.runTests();
 
-#ifdef _IOSTREAM_
 #define LOG(value) std::cout << value << std::endl;
-#define ASSERT(code) std::cout << std::endl << " -- Test job done (exited with error code " << code << ") -- " << std::endl << std::endl;
-#endif
+#define ASSERT(code) std::cout << std::endl << " -- Test job done (exited with error code " << code << ") -- " << std::endl << std::endl; exit(code);
 
 namespace testing
 {
